@@ -105,8 +105,9 @@ st.subheader("💸 Discount Impact on Profit")
 discount_profit = filtered_df.groupby(
     pd.cut(filtered_df["Discount_Percentage"], bins=5)
 )["Order Profit Per Order"].mean()
-
-st.bar_chart(discount_profit)
+discount_profit = discount_profit.reset_index()
+discount_profit["Discount_Percentage"] = discount_profit["Discount_Percentage"].astype(str)
+st.bar_chart(discount_profit.set_index("Discount_Percentage"))
 
 # -------------------------
 # Shipping Delay Analysis
@@ -138,5 +139,6 @@ st.bar_chart(top_customers)
 # -------------------------
 
 st.subheader("🔎 Dataset Preview")
+
 
 st.dataframe(filtered_df.head())
