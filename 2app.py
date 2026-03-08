@@ -8,7 +8,7 @@ st.set_page_config(page_title="Supply Chain Analytics Dashboard", layout="wide")
 st.title("📦 Supply Chain Analytics Dashboard")
 
 # Load dataset
-df = pd.read_csv("supply_chain_cleaned.csv")
+df = pd.read_csv("supplychain_cleaned.csv")
 
 # ---------------------------
 # Data Preparation
@@ -138,5 +138,6 @@ st.bar_chart(customer_revenue)
 # ---------------------------
 
 st.subheader("🔎 Dataset Preview")
+
 
 st.dataframe(filtered_df.head())
